@@ -1,0 +1,27 @@
+[
+  {
+    "id": "franek",
+    "avatar": "LINK_DO_AVATARA",
+    "postac": "Omen",
+    "imie": "Franek",
+    "wiek": 19,
+    "ranga": "P2",
+    "main": "Gekko",
+    "instagram": "Spojler_foto",
+    "instagram_url": "https://instagram.com/Spojler_foto",
+    "valorant": "Spojler#2137"
+  },
+
+  {
+    "id": "jettka",
+    "avatar": "LINK_DO_AVATARA2",
+    "postac": "Jett",
+    "imie": "Kasia",
+    "wiek": 18,
+    "ranga": "D3",
+    "main": "Jett",
+    "instagram": "jett_cos",
+    "instagram_url": "https://instagram.com/jett_cos",
+    "valorant": "Jettka#777"
+  }
+]
