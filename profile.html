@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Profil</title>
+<style>
+    body { background:#0f0f0f; color:white; font-family:Arial; padding:20px; }
+    .container {
+        max-width:600px; margin:auto; background:#1a1a1a;
+        padding:20px; border-radius:12px;
+    }
+    .avatar {
+        width:160px; height:160px; border-radius:50%;
+        object-fit:cover; display:block; margin:0 auto 20px auto;
+        border:3px solid #ff4655;
+    }
+    h1 { text-align:center; color:#ff4655; }
+    .info p { font-size:18px; margin:8px 0; }
+    .info span { color:#ff4655; font-weight:bold; }
+    .socials { text-align:center; margin-top:20px; }
+    .socials img { width:40px; transition:0.2s; }
+    .socials img:hover { transform:scale(1.15); }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img id="avatar" class="avatar">
+    <h1 id="imie"></h1>
+
+    <div class="info">
+        <p><span>Postać na Pyrkonie:</span> <span id="postac"></span></p>
+        <p><span>Imię:</span> <span id="imie2"></span></p>
+        <p><span>Wiek:</span> <span id="wiek"></span></p>
+        <p><span>Ranga (peak):</span> <span id="ranga"></span></p>
+        <p><span>Main:</span> <span id="main"></span></p>
+        <p><span>Instagram:</span> <span id="instagram"></span></p>
+        <p><span>Valorant:</span> <span id="valorant"></span></p>
+    </div>
+
+    <div class="socials">
+        <a id="insta_link" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        </a>
+    </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+fetch("data.json")
+  .then(r => r.json())
+  .then(data => {
+    const p = data.find(x => x.id === id);
+
+    if (!p) {
+      document.body.innerHTML = "<h1>Profil nie istnieje</h1>";
+      return;
+    }
+
+    document.getElementById("avatar").src = p.avatar;
+    document.getElementById("imie").textContent = p.imie;
+    document.getElementById("imie2").textContent = p.imie;
+    document.getElementById("postac").textContent = p.postac;
+    document.getElementById("wiek").textContent = p.wiek;
+    document.getElementById("ranga").textContent = p.ranga;
+    document.getElementById("main").textContent = p.main;
+    document.getElementById("instagram").textContent = p.instagram;
+    document.getElementById("valorant").textContent = p.valorant;
+
+    document.getElementById("insta_link").href = p.instagram_url;
+  });
+</script>
+
+</body>
+</html>
